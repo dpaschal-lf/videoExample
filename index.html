@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>video test</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+$(document).ready(initializeApp);
+
+function initializeApp(){
+    addEventHandlersToDomElements();
+}
+
+function addEventHandlersToDomElements(){
+    $(".playerButton").click( processPlayerClick );
+}
+
+function processPlayerClick(){
+    var clickedButton = $(this);
+    var player = $("#player")[0];  //video/audio is a core javascript function, so need the core js element inside the jquery element
+    var playerName = clickedButton.attr('playerName');
+    var playerFile = 'misses/'+playerName + '_miss.mp4';
+
+    player.src=playerFile;
+    player.play();
+}
+               
+            </script>
+
+            <style type="text/css">
+                #player{
+                    height: 50vh;
+                    border: 1px solid black;
+                }
+                .playerButton{
+                    cursor: pointer;
+                    background-color: grey;
+                    padding: 8px;
+                    display: inline-block;
+                    color: white;
+                }
+            </style>
+        </head>
+
+        <div>
+            <video id="player" src="">
+
+            </video>
+        </div>
+        <div>click a button to play a video</div>
+        <div class="playerButton" playerName="lebron">play lebron</div>
+        <div class="playerButton" playerName="parker">play parker</div>
+        <div class="playerButton" playerName="mcgee">play parker</div>
+        <div class="playerButton" playerName="noah">play noah</div>
+        <div class="playerButton" playerName="lonzo">play lonzo</div>
+        </video>
+        </body>
+    </html>
